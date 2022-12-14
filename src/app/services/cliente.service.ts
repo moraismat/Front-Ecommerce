@@ -27,4 +27,8 @@ export class ClienteService {
   login(cpf: string): Observable<any>{
     return this.http.get<any>(`http://localhost:8080/cliente/cpf/${cpf}`)
   }
+
+  editar(cliente: Cliente): Observable<any> {
+    return this.http.put<any>('http://localhost:8080/cliente/update', JSON.stringify(cliente), this.httpOptions)
+  }
 }

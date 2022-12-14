@@ -11,9 +11,9 @@ import { PedidosService } from 'src/app/services/pedidos.service';
   styleUrls: ['./pedidos.component.css']
 })
 export class PedidosComponent {
-  pedido: Pedido[] = []
+  pedidos: Pedido[] = []
   endereco: Endereco = {
-    id: '',
+    endereco_id: '',
     logradouro: '',
     numero: '',
     complemento: '',
@@ -48,12 +48,29 @@ export class PedidosComponent {
 
     this.pedidoService.encontrarPedidos(this.cliente.id)
       .subscribe(res => {
-        res.forEach((element: Pedido) => {
-          this.pedido.push(element)
+        res.forEach((element: any) => {
+          if(element.pagamento != null){
+            this.pedidos.push(element)
+          }
         });
       })
 
-    console.log(this.pedido)
+    console.log(this.pedidos)
   }
 
+  irParaPedidos(){
+    this.router.navigate(['/pedidos', this.cliente.id])
+  }
+
+  irParaHome() {
+    this.router.navigate(['/home', this.cliente.id])
+  }
+
+  irParaPerfil(){
+    this.router.navigate(['/perfil', this.cliente.id])
+  }
+
+  sair(){
+    this.router.navigate(['/login'])
+  }
 }

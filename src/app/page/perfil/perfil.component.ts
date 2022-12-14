@@ -11,7 +11,7 @@ import { ClienteService } from 'src/app/services/cliente.service';
 })
 export class PerfilComponent {
   endereco: Endereco = {
-    id: '',
+    endereco_id: '',
     logradouro: '',
     numero: '',
     complemento: '',
@@ -56,12 +56,31 @@ export class PerfilComponent {
         this.cliente.endereco.cep = res.endereco.cep
         this.cliente.endereco.cidade = res.endereco.cidade
         this.cliente.endereco.estado = res.endereco.estado
-        this.cliente.endereco.id = res.id
+        this.cliente.endereco.endereco_id = res.id
       })
   }
 
   editarPerfil(){
     this.router.navigate(['/editarPerfil', this.cliente.id])
+  }
+
+  irParaPedidos(){
+    this.router.navigate(['/pedidos', this.cliente.id])
+  }
+
+  irParaHome() {
+    this.router.navigate(['/home', this.cliente.id])
+  }
+
+  irParaPerfil(){
+    this.router.navigate(['/perfil', this.cliente.id])
+  }
+
+  irParaEditar(){
+    this.router.navigate(['/editarPerfil', this.cliente.id])
+  }
+  sair(){
+    this.router.navigate(['/login'])
   }
 }
 

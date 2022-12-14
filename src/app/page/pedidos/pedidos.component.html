@@ -1,1 +1,29 @@
-<p>pedidos works!</p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <div
+            class="collapse navbar-collapse"
+            id="navbarNavAltMarkup"
+            mdbCollapse
+        >
+        <div class="navbar-nav">
+            <button class="nav-link active" (click)="irParaHome()">Home</button>
+            <button class="nav-link" (click)="irParaPedidos()">Pedidos</button>
+            <button class="nav-link" (click)="irParaPerfil()">Perfil</button>
+            <button class="nav-link" (click)="sair()">Sair</button>
+        </div>
+      </div>
+    </div>
+</nav>
+<div class="container" style="margin-top: 5%; margin-bottom: 5%;">
+    <ul class="list-group">
+        <li class="list-group-item" *ngFor="let pedido of pedidos">
+            <label for="">Pedido Id: {{pedido.id}}</label><br>
+            <label for="">Total: {{pedido.total}}</label><br>
+            <label for="">Cliente: {{pedido.cliente.name}}</label><br>
+            <label for="">Estado Pagamengo: {{pedido.pagamento.estadoPagamento}}</label><br>
+            <label for="">Data Vencimento: {{pedido.pagamento.dtVencimento}}</label><br>
+            <label for="">Data Pagamento: {{pedido.pagamento.dtPagamento}}</label><br>
+            <label for="">Numero de Parcelas: {{pedido.pagamento.numeroParcelas}}</label><br>
+        </li>
+    </ul>
+</div>

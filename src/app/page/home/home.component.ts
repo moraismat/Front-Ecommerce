@@ -3,8 +3,10 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Categoria } from 'src/app/models/Categoria';
 import { Cliente } from 'src/app/models/Cliente';
 import { Endereco } from 'src/app/models/Endereco';
+import { Produto } from 'src/app/models/Produto';
 import { CategoriaService } from 'src/app/services/categoria.service';
 import { ClienteService } from 'src/app/services/cliente.service';
+import { ProdutoServiceService } from 'src/app/services/produto-service.service';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +15,7 @@ import { ClienteService } from 'src/app/services/cliente.service';
 })
 export class HomeComponent {
   endereco: Endereco = {
-    id: '',
+    endereco_id: '',
     logradouro: '',
     numero: '',
     complemento: '',
@@ -30,21 +32,22 @@ export class HomeComponent {
     email: '',
     endereco: this.endereco
   }
-  categoria: Categoria[];
+  produtos: Produto[];
 
 
   constructor(
     public router: Router,
     public activatedRoute: ActivatedRoute,
-    public categoriaService: CategoriaService,
+    public produtoService: ProdutoServiceService,
     public clienteService: ClienteService
   ){
-    this.categoria = []
+    this.produtos = []
   }
 
   ngOnInit(){
     this.activatedRoute.params.subscribe(params => {
       this.cliente.id = params['id']
+      console.log(this.cliente.id)
     })
 
     this.clienteService.acharCliente(this.cliente.id)
@@ -61,17 +64,34 @@ export class HomeComponent {
         this.cliente.endereco.cep = res.endereco.cep
         this.cliente.endereco.cidade = res.endereco.cidade
         this.cliente.endereco.estado = res.endereco.estado
-        this.cliente.endereco.id = res.id
-    })
-    console.log(this.cliente)
+        this.cliente.endereco.endereco_id = res.id
 
-    this.categoriaService.findAll()
+        console.log(res)
+
+    })
+    this.produtoService.findAllProdutos()
       .subscribe(res => {
-        res.forEach((element: Categoria) => {
-          this.categoria.push(element)
+        res.forEach((element: Produto) => {
+          this.produtos.push(element)
         });
       })
 
-    console.log(this.categoria)
+    console.log(this.produtos)
+  }
+
+  irParaPedidos(){
+    this.router.navigate(['/pedidos', this.cliente.id])
+  }
+
+  irParaHome() {
+    this.router.navigate(['/home', this.cliente.id])
+  }
+
+  irParaPerfil(){
+    this.router.navigate(['/perfil', this.cliente.id])
+  }
+
+  sair(){
+    this.router.navigate(['/login'])
   }
 }

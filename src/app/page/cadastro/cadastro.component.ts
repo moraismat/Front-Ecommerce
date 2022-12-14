@@ -14,7 +14,7 @@ export class CadastroComponent {
   formCliente!: FormGroup;
 
   endereco: Endereco = {
-    id: '',
+    endereco_id: '',
     logradouro: '',
     numero: '',
     complemento: '',
@@ -60,11 +60,7 @@ export class CadastroComponent {
     })
   }
 
-  cancelar(){
-    this.router.navigate(['/login'])
-  }
   cadastrar(){
-    console.log(this.formCliente.get('nome'))
     this.cliente.name = this.formCliente.get('nome')?.value
     this.cliente.telefone = this.formCliente.get('telefone')?.value
     this.cliente.cpf = this.formCliente.get('cpf')?.value
@@ -77,16 +73,20 @@ export class CadastroComponent {
     this.cliente.endereco.cidade = this.formCliente.get('cidade')?.value
     this.cliente.endereco.estado = this.formCliente.get('estado')?.value
 
-    /*this.clienteService.cadastrar(this.cliente)
+    this.clienteService.cadastrar(this.cliente)
         .subscribe(res => {
           this.cliente.id = res.id
-          this.cliente.endereco.id = res.endereco.id
-        })*/
-    this.router.navigate([])
+          this.cliente.endereco.endereco_id = res.endereco.id
+    })
+    this.router.navigate(['/login'])
   }
 
   seguir(){
     var id = 1;
     this.router.navigate([`/home`, id])
+  }
+
+  cancelar(){
+    this.router.navigate(['/login'])
   }
 }

@@ -1,5 +1,5 @@
 export interface Endereco{
-    id: string,
+    endereco_id: string,
     logradouro: string,
     numero: string,
     complemento: string,
