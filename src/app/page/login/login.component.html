@@ -1,0 +1,20 @@
+<div class="d-flex justify-content-center align-items-center">
+    <div class="card p-3">
+        <form [formGroup]="formGroup">
+        <div class="form-group">
+            <label for="email">CPF</label>
+            <input type="text" id="email" class="form-control" formControlName="cpf">
+        </div>
+        <div class="form-group">
+            <label for="senha">Senha</label>
+            <input type="password" id="senha" class="form-control" formControlName="senha">
+        </div>
+        <div class="form-group">
+            <button class="btn btn-success" type="submit" (click)="entrar()">Entrar</button>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-success" type="submit" (click)="cadastrar()">Cadastrar</button>
+        </div>
+      </form>
+    </div>
+</div>

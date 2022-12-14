@@ -1,0 +1,62 @@
+<form [formGroup]="formCliente">
+    <div class="form-group">
+        <label for="nome">Nome</label>
+        <input type="text" class="form-control"  name="nome" id="cliente.nome" formControlName="nome" required>
+    </div>
+
+    <div class="form-group">
+        <label for="nome">Email</label>
+        <input type="text" class="form-control" name="email" id="email" formControlName="email" required>
+    </div>
+
+    <div class="form-group">
+        <label for="nome">CPF</label>
+        <input type="text" class="form-control" name="cpf" id="cpf" formControlName="cpf" required>
+    </div>
+
+    <div class="form-group">
+        <label for="nome">Telefone</label>
+        <input type="text" class="form-control" name="telefone" id="telefone" formControlName="telefone" required>
+    </div>
+
+    <div class="form-group">
+        <label for="nome">Logradouro</label>
+        <input type="text" class="form-control" name="logradouro" id="logradouro" formControlName="logradouro" required>
+    </div>
+
+    <div class="form-group">
+        <label for="nome">Numero</label>
+        <input type="text" class="form-control" name="numero" id="numero" formControlName="numero"required>
+    </div>
+
+    <div class="form-group">
+        <label for="nome">Complemento</label>
+        <input type="text" class="form-control" name="complemento" id="complemento" formControlName="complemento" required>
+    </div>
+
+    <div class="form-group">
+        <label for="nome">Bairro</label>
+        <input type="text" class="form-control" name="bairro" id="bairro" formControlName="bairro" required>
+    </div>
+
+    <div class="form-group">
+        <label for="nome">CEP</label>
+        <input type="text" class="form-control" name="cep" id="cep" formControlName="cep" required>
+    </div>
+
+    <div class="form-group">
+        <label for="nome">Cidade</label>
+        <input type="text" class="form-control" name="cidade" id="cidade" formControlName="cidade" required>
+    </div>
+
+    <div class="form-group">
+        <label for="nome">Estado</label>
+        <input type="text" class="form-control" name="estado" id="estado" formControlName="estado" required>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-success" type="submit" (click)="seguir()">Cadastrar</button>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-success" type="submit" (click)="cancelar()">Cancelar</button>
+    </div>
+</form>
