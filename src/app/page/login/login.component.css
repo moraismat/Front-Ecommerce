@@ -1,0 +1,25 @@
+.navbar-width{
+    width: 100%;
+    text-align: right;
+}
+.centralize{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cadastro-button{
+    margin-left: 1rem;
+}
+
+.login{
+    margin-top: 7rem;
+    box-shadow: 4px 0px 9px 0px rgba(0,0,0,0.32);
+    -webkit-box-shadow: 4px 0px 9px 0px rgba(0,0,0,0.32);
+    -moz-box-shadow: 4px 0px 9px 0px rgba(0,0,0,0.32);
+    width: 20%;
+}
+
+.login-fields{
+    margin-top: 2rem;
+}
