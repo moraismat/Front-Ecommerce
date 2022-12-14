@@ -15,11 +15,12 @@
     </div>
 </nav>
 <div class="container" style="margin-top: 5%; margin-bottom: 5%;">
+    <button type="button" class="btn btn-primary" style="margin-bottom: 0.5%;" (click)="irParaCarrinho()">Ir para o carrinho</button>
     <ul class="list-group">
         <li class="list-group-item" *ngFor="let produto of produtos">
             <label for="">Nome: {{produto.name}}</label><br>
             <label for="">Preço: {{produto.price}}</label><br>
-            <button class="btn btn-primary">Adicionar ao Carrinho</button>
+            <button class="btn btn-primary" (click)="addToCart(produto)">Adicionar ao Carrinho</button>
         </li>
     </ul>
 </div>

@@ -11,6 +11,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { PerfilComponent } from './page/perfil/perfil.component';
 import { PedidosComponent } from './page/pedidos/pedidos.component';
 import { EditarPerfilComponent } from './page/editar-perfil/editar-perfil.component';
+import { CartComponent } from './page/cart/cart.component';
+import { PedidorealizadoComponent } from './page/pedidorealizado/pedidorealizado.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { EditarPerfilComponent } from './page/editar-perfil/editar-perfil.compon
     HomeComponent,
     PerfilComponent,
     PedidosComponent,
-    EditarPerfilComponent
+    EditarPerfilComponent,
+    CartComponent,
+    PedidorealizadoComponent,
   ],
   imports: [
     BrowserModule,

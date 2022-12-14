@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <div
+            class="collapse navbar-collapse"
+            id="navbarNavAltMarkup"
+            mdbCollapse
+        >
+        <div class="navbar-nav">
+            <button class="nav-link active" (click)="irParaHome()">Home</button>
+            <button class="nav-link" (click)="irParaPedidos()">Pedidos</button>
+            <button class="nav-link" (click)="irParaPerfil()">Perfil</button>
+            <button class="nav-link" (click)="sair()">Sair</button>
+        </div>
+      </div>
+    </div>
+</nav>
+<div class="container" style="margin-top: 5%; margin-bottom: 5%;">
+    <ul class="list-group">
+        <li class="list-group-item" *ngFor="let item of items">
+            <label for="">Nome: {{item.produto.name}}</label><br>
+            <label for="">Preço: {{item.produto.price}}</label><br>
+            <button type="button" class="btn btn-danger" (click)="removerItem(item.produto)">Remover Item</button>
+        </li>
+    </ul>
+</div>
+<div class="d-flex justify-content-center align-items-center" s>
+    <div class="card p-3">
+        <form [formGroup]="formCliente" style="margin: 2%;">
+            <div class="form-group">
+                <label for="nome">Numero Parcelas</label>
+                <input type="text" class="form-control" name="nome" id="cliente.nome" formControlName="numeroParcelas" required>
+            </div>
+
+            <div class="form-group">
+                <label for="nome">Cartão</label>
+                <input type="text" class="form-control" name="email" id="email" formControlName="numeroCartao" required>
+            </div>
+            <div class="">
+                <button class="btn btn-success" type="submit" (click)="enviarPedido()" style="margin-bottom: 0.2%;">Realizar Pedido</button>
+                <button class="btn btn-danger" type="submit" (click)="irParaPerfil()">Cancelar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
